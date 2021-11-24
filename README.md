@@ -13,7 +13,7 @@ logger.Log(new Log
     Namespace = target?.ReflectedType.Namespace,
     ClassName = target?.ReflectedType.Name,
     MethodName = target?.Name,
-    DateTime = System.DateTime.Now,
+    DateTime = DateTime.Now,
     Description = exception.Message,
     Success = false,
     Title = exception.GetType().Name
