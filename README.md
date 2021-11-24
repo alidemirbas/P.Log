@@ -5,6 +5,7 @@ Let's just throw exceptions anywhere 🤪
 Then get a global exception handler (like https://github.com/alidemirbas/P.Error . you have nothing to do with it but a single code line)  
 and then go in your exception handler scope, that's all like below.  
 ```csharp
+MethodBase target = exception.TargetSite
 ILogger logger = new Logger();
 logger.Log(new Log
 {
@@ -12,9 +13,9 @@ logger.Log(new Log
     ClassName = target?.ReflectedType.Name,
     MethodName = target?.Name,
     DateTime = System.DateTime.Now,
-    Description = error.Exception.Message,
+    Description = exception.Message,
     Success = false,
-    Title = error.Exception.GetType().Name
+    Title = exception.GetType().Name
 });
 ```
 
